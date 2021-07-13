@@ -2,8 +2,9 @@
     <div>
     <h1>Hello from Home Component</h1>
     <h1>{{data}}</h1>
-    <h1>{{msg}}</h1>
-    <button v-on:mouseover="hello('dataa')">call hello</button>
+    <h1 v-if="show">{{msg}}</h1>
+    <h1 v-else> Else part</h1>
+    <button v-on:click="display()">Display</button>
     </div>
 </template>
 
@@ -16,9 +17,19 @@ export default {
        msg: String
     },
     methods:{
-        hello(item){
+        display(){
             //note: events as: click, mouseover
-            alert(item)
+            //alert(item)
+            
+            //this.show= true
+
+            //toogling
+            this.show= !this.show
+        }
+    },
+    data(){
+        return{
+            show:false
         }
     }
 }
