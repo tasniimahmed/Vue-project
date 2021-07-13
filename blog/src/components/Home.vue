@@ -1,7 +1,7 @@
 <template>
-    <div>
-    <h1>Hello from Home Component</h1>
-    <h1>{{data}}</h1>
+    <div class="home">
+    <h1>Home Component</h1>
+   <!-- <h1>{{data}}</h1>
     <h1 v-if="show">{{msg}}</h1>
     <h1 v-else> Else part</h1>
     <button v-on:click="display()">Display</button>
@@ -14,14 +14,22 @@
     <tr v-for= "user in users" :key="user.id">
         <td>{{user.id}}</td><td>{{user.name}}</td><td>{{user.email}}</td>
     </tr>
-    </table>
+    </table> -->
+<Users/>
+<Products/>
     </div>
 </template>
 
 <script>
+import Users from './User.vue'
+import Products from './Products.vue'
 
 export default {
    name: 'Home',
+    components: {
+    Users,
+    Products
+  },
    props: { 
        data: String,
        msg: String
@@ -49,3 +57,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .home{
+        background-color: rgb(163, 189, 206);
+        height: 500px;
+    }
+</style>
