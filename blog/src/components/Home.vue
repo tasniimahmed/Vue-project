@@ -1,6 +1,9 @@
 <template>
     <div class="home">
     <h1>Home Component</h1>
+    <h1>{{name}}</h1>
+    <p v-html="header"></p>
+    <h3>{{ok?"yes":"no"}}</h3>
    <!-- <h1>{{data}}</h1>
     <h1 v-if="show">{{msg}}</h1>
     <h1 v-else> Else part</h1>
@@ -15,8 +18,8 @@
         <td>{{user.id}}</td><td>{{user.name}}</td><td>{{user.email}}</td>
     </tr>
     </table> -->
-<Users/>
-<Products/>
+    <Users/>
+    <Products/>
     </div>
 </template>
 
@@ -40,13 +43,16 @@ export default {
             //alert(item)
             
             //this.show= true
-
+            //this.name="Mona"
             //toogling
             this.show= !this.show
         }
     },
     data(){
         return{
+            header: "<h2>Added by js</h2>",
+            ok:true,
+            name: 'Tasnim',
             show:false,
             users:[
                 { id:1, name:'peter', email: 'peter@gmail.com'},
