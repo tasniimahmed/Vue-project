@@ -1,13 +1,20 @@
 <template>
     <div class="child">
     <h1>Users Component</h1>
+    <button v-on:click="updateTitle">change title</button>
     </div>
 </template>
 
 <script>
 
 export default {
-   name: 'Users'
+   name: 'Users',
+   methods:{
+       updateTitle(){
+           //change title is the name of the event
+           this.$emit('changeTitle', 'props changd')
+       }
+   }
 }
 </script>
 

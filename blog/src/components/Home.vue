@@ -4,6 +4,7 @@
     <h1>{{name}}</h1>
     <p v-html="header"></p>
     <h3>{{ok?"yes":"no"}}</h3>
+    <h4>{{title}}</h4>
    <!-- <h1>{{data}}</h1>
     <h1 v-if="show">{{msg}}</h1>
     <h1 v-else> Else part</h1>
@@ -18,8 +19,8 @@
         <td>{{user.id}}</td><td>{{user.name}}</td><td>{{user.email}}</td>
     </tr>
     </table> -->
-    <Users/>
-    <Products/>
+    <Users v-on:changeTitle="updatetitleText($event)"/>
+    <Products name="pizza"/>
     </div>
 </template>
 
@@ -46,10 +47,14 @@ export default {
             //this.name="Mona"
             //toogling
             this.show= !this.show
+        },
+        updatetitleText(title){
+            this.title = title
         }
     },
     data(){
         return{
+            title:"change to parent data",
             header: "<h2>Added by js</h2>",
             ok:true,
             name: 'Tasnim',
